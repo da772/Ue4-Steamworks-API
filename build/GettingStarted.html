@@ -1,0 +1,284 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Getting Started &mdash; Unreal Engine 4 Steamworks Callback Plugin 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Steam Friend Callbacks" href="SteamFriend.html" />
+    <link rel="prev" title="Initial Set Up" href="SetUp.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Unreal Engine 4 Steamworks Callback Plugin
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Set Up:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="SetUp.html">Initial Set Up</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#enabling-steam-subsystem">Enabling Steam Subsystem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#referencing-callback-object">Referencing Callback Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cleanup">Cleanup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#assigning-events">Assigning Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#useful-references">Useful References</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Callbacks:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="SteamFriend.html">Steam Friend Callbacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SteamMatchmaking.html">Steam Matchmaking Callbacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SteamUser.html">Steam User Callbacks</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Unreal Engine 4 Steamworks Callback Plugin</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Getting Started</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/GettingStarted.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="getting-started">
+<h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="enabling-steam-subsystem">
+<h2>Enabling Steam Subsystem<a class="headerlink" href="#enabling-steam-subsystem" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line">Before this plugin can be used the Steam Subsystem must be enabled and active. If you are using blueprints I would highly recommend another free plugin to enable advanced steam functions <a class="reference external" href="https://forums.unrealengine.com/community/community-content-tools-and-tutorials/41043-advanced-sessions-plugin">AdvancedSessions</a> along with <a class="reference external" href="https://forums.unrealengine.com/community/community-content-tools-and-tutorials/41043-advanced-sessions-plugin">AdvancedSteamSessions</a>. Most of the features of this plugin only work after the game is built and wrapped with Steam. I assume some features work with app id 480, but for all the features to be in full effect I advise using your own steam app id.</div>
+</div>
+</div>
+<div class="section" id="referencing-callback-object">
+<h2>Referencing Callback Object<a class="headerlink" href="#referencing-callback-object" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line">There are four callback objects which contain events that can be assigned</div>
+<div class="line"><strong>Friend</strong>, <strong>Matchmaking</strong>, <strong>User</strong></div>
+<div class="line">They all contain unique events which can be seen later in this documentation.</div>
+<div class="line"><strong>To obtain a reference to one of these objects use the static function:</strong></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">Get</span> <span class="pre">(Name</span> <span class="pre">of</span> <span class="pre">Object)</span> <span class="pre">Callback</span></code></div>
+</div>
+<img alt="_images/CallbackObj.png" class="align-center" src="_images/CallbackObj.png" style="width: 600px; height: 350px;" />
+<div class="line-block">
+<div class="line">This will return a reference to the object type specifed in the funtion.</div>
+<div class="line">On the first call of Get (Name of Object) Callback an Actor will be created in the scene named PSCallbackCleanUpActor.</div>
+<div class="line">This actor can be ignored it is just created for storage you will never need to reference it.</div>
+</div>
+</div>
+<div class="section" id="cleanup">
+<h2>Cleanup<a class="headerlink" href="#cleanup" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line">In order to prevent unwanted memory leaks, the function CallbackCleanUp should be called before the game ends</div>
+</div>
+<img alt="_images/CleanUp.png" class="align-center" src="_images/CleanUp.png" style="width: 600px; height: 350px;" />
+</div>
+<div class="section" id="assigning-events">
+<h2>Assigning Events<a class="headerlink" href="#assigning-events" title="Permalink to this headline">¶</a></h2>
+<p class="centered">
+<strong><strong>Finding Callbacks</strong></strong></p><div class="line-block">
+<div class="line">To assign an event first drag a node from a referenced callback object out. Type “Assign” for unreal to display all available callbacks then select the callback you wish to choose. This will create a Bind Event to node.</div>
+</div>
+<img alt="_images/Assign.png" class="align-center" src="_images/Assign.png" style="width: 600px; height: 350px;" />
+<p class="centered">
+<strong><strong>Assigning Callbacks to Custom Events</strong></strong></p><div class="line-block">
+<div class="line">Drag the red node out from the Bind Event node and select Add Event -&gt; Add Custom Event to assign the callback to an event. If the callback returns a struct (dark blue node) you can right click it to ‘Split Struct Pin’</div>
+</div>
+<img alt="_images/CustomEvent.png" class="align-center" src="_images/CustomEvent.png" style="width: 600px; height: 350px;" />
+<p class="centered">
+<strong><strong>Assigning Callbacks to Functions</strong></strong></p><div class="line-block">
+<div class="line">Drag the red node out from the Bind Evet node and select Event Dispatchers-&gt;Create Event. This will create a Create Event node which you can use to find the event to a function. To do this you must create a function matching the “Signature:” on the Create Event node. Then use the drop down to select your function and bind the event.</div>
+</div>
+<img alt="_images/FunctionEvent.png" class="align-center" src="_images/FunctionEvent.png" style="width: 600px; height: 350px;" />
+<p class="centered">
+<strong><strong>Preventing Crashes</strong></strong></p><div class="line-block">
+<div class="line">Before events can be assigned the <strong>Steam Subsystem must be enabled and active or the game WILL crash.</strong> A way to determine if Steam is active in blueprints is to use the AdvancedSessionsSteam plugin function <code class="docutils literal notranslate"><span class="pre">GetSteamPersona</span></code> if the function returns empty then do not bind events:</div>
+</div>
+<img alt="_images/CheckforSteam.png" class="align-center" src="_images/CheckforSteam.png" style="width: 600px; height: 350px;" />
+<div class="line-block">
+<div class="line">In C++ determining if Steam is active is as simple as checking that the Steam Subsystem is not null:</div>
+</div>
+<p class="centered">
+<strong><code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">(IOnlineSubsystem::Get(&quot;Steam&quot;))</span> <span class="pre">{}</span></code></strong></p></div>
+<div class="section" id="useful-references">
+<h2>Useful References<a class="headerlink" href="#useful-references" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line"><a class="reference external" href="https://partner.steamgames.com/doc/home">Steamworks Documentation</a></div>
+<div class="line"><a class="reference external" href="https://github.com/da772/UE4_SteamworksCallbacks">Github Source</a></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="SteamFriend.html" class="btn btn-neutral float-right" title="Steam Friend Callbacks" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="SetUp.html" class="btn btn-neutral float-left" title="Initial Set Up" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Daniel Nahle
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
